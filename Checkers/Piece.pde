@@ -24,7 +24,13 @@ class Piece {
     else fill(0);
     stroke(0);
     strokeWeight(4);
-    ellipse((x+.5)*w, (y+.5)*w, w*d, w*d);
+    ellipse(getX(), getY(), w*d, w*d);
+    
+    if(king) {
+      fill(120);
+      strokeWeight(0);
+      ellipse(getX(), getY(), w*.6*d, w*.6*d);
+    }
   }
   
   public float getX() {
@@ -49,5 +55,13 @@ class Piece {
   
   public float getD() {
     return w*d;
+  }
+  
+  public void kingMe() {
+    king = true;
+  }
+  
+  public boolean getKing() {
+    return king;
   }
 }
