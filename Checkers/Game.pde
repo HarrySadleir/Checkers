@@ -41,8 +41,9 @@ class Game {
       } else {
 
         for (PVector p : dests) {
+          stroke(255, 255, 0);
           strokeWeight(4);
-          fill(255, 255, 0);
+          noFill();
           rect(p.x*w, p.y*w, w, w);
         }
 
@@ -57,6 +58,16 @@ class Game {
         if (abs(dests.get(i).x-selected.getGX()) == 2) {
         }
       }
+    }
+    
+    if(white.size() == 0) {
+      gO = new GameOver(true);
+      mode = gameOver;
+    }
+    
+    if(black.size() == 0) {
+      gO = new GameOver(false);
+      mode = gameOver;
     }
   }
 
@@ -152,8 +163,6 @@ class Game {
 
           if (dj) {
             phase = doubleJump;
-
-            println("we got here, we thriving");
           } else {
             blackTurn = !blackTurn;
             selected = null;
