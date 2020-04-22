@@ -34,7 +34,7 @@ class Game {
         }
       }
 
-      if (dests.size() == 0 && mode == doubleJump) {
+      if (dests.size() == 0 && phase == doubleJump) {
         phase = select;
         selected = null;
         blackTurn = !blackTurn;
