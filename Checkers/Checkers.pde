@@ -1,42 +1,38 @@
 /*
-TODO: 
-
-- make abstract GameState class
-- improve graphic for kinged
-- allow pass on double jump i guess?
+Checkers Instructions:
+- Click on a piece to select it, then choose where you want to move it
+- You can only click on a piece if it's your turn
+- Black Moves First
 */
 
+// scale factor
 int w;
 
-int mode = 2;
-final int startup = 0;
-final int playing = 1;
-final int gameOver = 2;
-Game g;
-Intro i;
-GameOver gO;
+// mode framework
+int mode = 0;
+final int intro = 0;
+final int game = 1;
+final int winner = 2;
+GameState gs;
 
 void setup() {
+  // screen setup
   size(600, 600);
   w = height/8;
-  
   background(100);
   
-  
+  // instantiate gs
   if(mode == 0) {
-    i = new Intro();
+    gs = new Intro();
   }
   if(mode == 1) {
-    g = new Game();
+    gs = new Game();
   }
   if(mode == 2) {
-    gO = new GameOver(true);
+    gs = new GameOver(true);
   }
 }
 
 void draw() {
-  //translate(width/2 - 4*w, 0);
-  if(mode == startup) i.show();
-  if(mode == playing) g.playing();
-  if(mode == gameOver) gO.show();
+  gs.act();
 }
