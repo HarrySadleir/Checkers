@@ -11,6 +11,9 @@ public class Intro extends GameState{
 
     textSize(45);
     text("NEW GAME", width/2-1.6*w, height/2+w);
+    
+    textSize(20);
+    text("Programmed by: Harry Sadleir", .25*w, height-.3*w);
 
     if (mousePressed && mouseX > 2.5*w && mouseX < 5.5*w 
       && mouseY > 4.6*w && mouseY < 5.1*w) {
